@@ -2,13 +2,30 @@
 
 
 == Goals
+Manage conversions between text written in ADOC and JSON representations of that content with DOCBOOK as an intermediary. 
 
+Use ADOC or other DSL to write articles that are consistent with DOCBOOK standard.
+ 
 * Convert ADOC to DOCBOOK
 * Convert DOCBOOK to JSON
 * Convert DOCBOOK to PDF
+* Convert DOCBOOK.JSON to CMS.JSON
 
 == Ideas
 
 * Use gulp?
 * Identify all libraries
+* Use DOCBOOK as document database?
+* Choose XML to JSON package: xml2js, xml-js, cheerio 
 
+== References
+
+=== cheerio 
+- https://www.npmjs.com/package/cheerio
+
+=== xml2js
+- https://www.npmjs.com/package/xml2js
+
+=== xml-js
+- https://github.com/nashwaan/xml-js
+- https://github.com/nashwaan/xml-js/issues/75
