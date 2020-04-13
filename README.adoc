@@ -25,6 +25,13 @@ Use ADOC or other DSL to write articles that are consistent with DOCBOOK standar
 adoc2xml.js::
 	Converts `asciidoctor-writers-guide.adoc` to DocBook using asciidoctor-docbook.js. See https://github.com/asciidoctor/asciidoctor-docbook.js/tree/master
 
+docbook2json.js::
+	Converts `howto.xml` to JSON using xml-js.
+
+index.js::
+	Converts `howto.xml` to JSON using xml2js.
+
+
 == Source Files
 
 asciidoctor-writers-guide.adoc::
