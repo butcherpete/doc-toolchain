@@ -29,8 +29,16 @@ howto.xml::
 
 == References
 
+https://www.balisage.net/Proceedings/vol17/html/Walsh01/BalisageVol17-Walsh01.html[Marking up and marking down]::
+	Markup provides a means of annotating a text such that its important characteristics are readily apparent. Simplicity of annotation and richness of meaning are often at odds. Through one lens, we can see the evolution of markup as developing along this fault line. TANSTAAFL. SGML provided mechanisms that reduced the complexity of annotation at considerable cost in implementation. XML reduced implementation cost at the expense of simplicity in annotation. HTML attempted to simplify annotation complexity and implementation cost by choosing a single tag set and inventing entirely new extension mechanisms. Online communities like GitHub and Stack Overflow have abandoned angle brackets in favor of Markdown, Common Mark, AsciiDoc, and other markup reminiscent of wiki syntax or SGML SHORTREF. 
+
+
 http://wiki.open311.org/JSON_and_XML_Conversion/[XML to JSON Conventions]::
 	Not everything in XML can be represented in JSON. The main reason for this is because XML allows inline metadata using tag attributes and there is no standard way of representing this metadata in JSON. Below you will find a reference point for an XML representation along with descriptions and JSON representations for each of these conventions.
+
+=== Stack Overflow
+
+- https://stackoverflow.com/questions/20238493/xml2js-how-is-the-output
 
 === cheerio 
 - https://www.npmjs.com/package/cheerio
