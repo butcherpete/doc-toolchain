@@ -15,13 +15,13 @@ const options = {
   standalone: true
 }
 
-const content = require('fs').readFileSync('./asciidoc-writers-guide.adoc');
+const content = require('fs').readFileSync('./input/asciidoc-writers-guide.adoc');
 
 const docbook = asciidoctor.convert(content, options);
 
 //console.log(docbook);
 
-fs.writeFile('./asciidoc.xml', docbook, err => {
+fs.writeFile('./output/asciidoc2.xml', docbook, err => {
   if (err) {
     console.error(err)
     return

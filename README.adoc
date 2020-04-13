@@ -20,6 +20,11 @@ Use ADOC or other DSL to write articles that are consistent with DOCBOOK standar
 * Use DOCBOOK as document database?
 * Choose XML to JSON package: xml2js, xml-js, cheerio 
 
+== Code
+
+adoc2xml.js::
+	Converts `asciidoctor-writers-guide.adoc` to DocBook using asciidoctor-docbook.js. See https://github.com/asciidoctor/asciidoctor-docbook.js/tree/master
+
 == Source Files
 
 asciidoctor-writers-guide.adoc::
@@ -41,6 +46,10 @@ https://www.balisage.net/Proceedings/vol17/html/Walsh01/BalisageVol17-Walsh01.ht
 
 http://wiki.open311.org/JSON_and_XML_Conversion/[XML to JSON Conventions]::
 	Not everything in XML can be represented in JSON. The main reason for this is because XML allows inline metadata using tag attributes and there is no standard way of representing this metadata in JSON. Below you will find a reference point for an XML representation along with descriptions and JSON representations for each of these conventions.
+
+https://github.com/asciidoctor/asciidoctor/wiki/Convert-Asciidoc-to-Docbook-for-use-with-Publican[Convert AsciiDoc to DocBook for use with Publican]::
+	Publican expects certain structural rules to be followed in order to be able to build outputs with it. These expectations differ depending on whether you want to produce an article, book, or bookset. Booksets are pretty uncommon, so I won’t be testing them. This document will provide some notes about how to get from Asciidoc to Publican-built output for articles and books.
+
 
 === Stack Overflow
 
