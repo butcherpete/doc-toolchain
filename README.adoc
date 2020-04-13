@@ -29,6 +29,12 @@ howto.xml::
 
 == References
 
+https://www.balisage.net/Accessibility/CFP.html[The Role of XML in Publishing Accessible Documents]::
+	In this one-day symposium we will explore the role of XML in supporting accessibility. There is a moral as well as a legal imperative to make information and documents more accessible. What can we, the XML community, do to enable the creation and publication of accessible documents? What can we learn from the Accessibility community?
++
+A substantial and growing portion of scientific, medical, legal, academic, engineering, and technical literature is now published and/or archived using XML as an intermediary format. XML is used in downstream processing of journal articles, books, laws, standards, and even newspapers without authors or readers being aware of it. That XML is critical to the richness and robustness of the publications received by the end user and the user experience. In a workflow where publishers create print, PDF, HTML, eBook, braille, tagged PDF, and WCAG-compliant HTML5 from the same XML source, information that is not in the XML cannot be made available to the reader/user/agent. As publishers strive to create more accessible documents, the XML embedded in the production process is key to the costs, and the success or failure, of the creation of accessible publications. Come explore ways to make our world more accessible using the XML tools we already possess. 
+
+
 https://www.balisage.net/Proceedings/vol17/html/Walsh01/BalisageVol17-Walsh01.html[Marking up and marking down]::
 	Markup provides a means of annotating a text such that its important characteristics are readily apparent. Simplicity of annotation and richness of meaning are often at odds. Through one lens, we can see the evolution of markup as developing along this fault line. TANSTAAFL. SGML provided mechanisms that reduced the complexity of annotation at considerable cost in implementation. XML reduced implementation cost at the expense of simplicity in annotation. HTML attempted to simplify annotation complexity and implementation cost by choosing a single tag set and inventing entirely new extension mechanisms. Online communities like GitHub and Stack Overflow have abandoned angle brackets in favor of Markdown, Common Mark, AsciiDoc, and other markup reminiscent of wiki syntax or SGML SHORTREF. 
 
