@@ -31,6 +31,40 @@ docbook2json.js::
 index.js::
 	Converts `howto.xml` to JSON using xml2js.
 
+== Asciidoc Block Structure
+
+The AsciiDoc block structure can be informally summarized as follows [1]:
+
+https://www.methods.co.nz/asciidoc/chunked/ch08.html
+
+----
+Document      ::= (Header?,Preamble?,Section*)
+Header        ::= (Title,(AuthorInfo,RevisionInfo?)?)
+AuthorInfo    ::= (FirstName,(MiddleName?,LastName)?,EmailAddress?)
+RevisionInfo  ::= (RevisionNumber?,RevisionDate,RevisionRemark?)
+Preamble      ::= (SectionBody)
+Section       ::= (Title,SectionBody?,(Section)*)
+SectionBody   ::= ((BlockTitle?,Block)|BlockMacro)+
+Block         ::= (Paragraph|DelimitedBlock|List|Table)
+List          ::= (BulletedList|NumberedList|LabeledList|CalloutList)
+BulletedList  ::= (ListItem)+
+NumberedList  ::= (ListItem)+
+CalloutList   ::= (ListItem)+
+LabeledList   ::= (ListEntry)+
+ListEntry     ::= (ListLabel,ListItem)
+ListLabel     ::= (ListTerm+)
+ListItem      ::= (ItemText,(List|ListParagraph|ListContinuation)*)
+----
+
+Where:
+
+* ? implies zero or one occurrence, + implies one or more occurrences, * implies zero or more occurrences.
+* All block elements are separated by line boundaries.
+* BlockId, AttributeEntry and AttributeList block elements (not shown) can occur almost anywhere.
+* There are a number of document type and backend specific restrictions imposed on the block syntax.
+* The following elements cannot contain blank lines: Header, Title, Paragraph, ItemText.
+* A ListParagraph is a Paragraph with its listelement option set.
+* A ListContinuation is a list continuation element. 
 
 == Source Files
 
