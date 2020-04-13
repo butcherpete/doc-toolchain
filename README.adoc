@@ -29,6 +29,9 @@ howto.xml::
 
 == References
 
+http://wiki.open311.org/JSON_and_XML_Conversion/[XML to JSON Conventions]::
+	Not everything in XML can be represented in JSON. The main reason for this is because XML allows inline metadata using tag attributes and there is no standard way of representing this metadata in JSON. Below you will find a reference point for an XML representation along with descriptions and JSON representations for each of these conventions.
+
 === cheerio 
 - https://www.npmjs.com/package/cheerio
 
