@@ -11,7 +11,7 @@ const asciidoctor = require('@asciidoctor/core')()
 require('@asciidoctor/docbook-converter')()
 
 const options = {
-  attributes: { backend: 'docbook5', doctype: 'book' },
+	attributes: { backend: 'docbook5', doctype: 'book', docinfo: 'shared' },
   standalone: true
 }
 
@@ -21,7 +21,7 @@ const docbook = asciidoctor.convert(content, options);
 
 //console.log(docbook);
 
-fs.writeFile('./output/asciidoc2.xml', docbook, err => {
+fs.writeFile('./output/asciidoc-writers-bat.xml', docbook, err => {
   if (err) {
     console.error(err)
     return

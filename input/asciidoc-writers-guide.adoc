@@ -23,6 +23,7 @@ endif::[]
 :figure-caption!:
 :imagesdir: ../images
 :includedir: _includes
+:docinfo: shared-head
 // Refs
 :asciidoc-dl-ref: https://sourceforge.net/projects/asciidoc/files/latest/download
 :asciidoc-editor-ref: http://asciidoc.org/#_editor_support

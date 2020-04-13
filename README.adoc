@@ -19,6 +19,7 @@ Use ADOC or other DSL to write articles that are consistent with DOCBOOK standar
 * Identify all libraries
 * Use DOCBOOK as document database?
 * Choose XML to JSON package: xml2js, xml-js, cheerio 
+* docinfo https://asciidoctor.org/docs/user-manual/#docinfo-file
 
 == Code
 
