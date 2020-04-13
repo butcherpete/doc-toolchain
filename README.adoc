@@ -11,12 +11,21 @@ Use ADOC or other DSL to write articles that are consistent with DOCBOOK standar
 * Convert DOCBOOK to PDF
 * Convert DOCBOOK.JSON to CMS.JSON
 
+
+
 == Ideas
 
 * Use gulp?
 * Identify all libraries
 * Use DOCBOOK as document database?
 * Choose XML to JSON package: xml2js, xml-js, cheerio 
+
+== Source Files
+
+asciidoctor-writers-guide.adoc::
+	ADOC copy of https://asciidoctor.org/docs/asciidoc-writers-guide/
+howto.xml::
+	This document is targeted at DocBook users who are considering switching from DocBook V4.x to DocBook V5.0. It describes differences between DocBook V4.x and V5.0 and provides some suggestions about how to edit and process DocBook V5.0 documents. There is also a section devoted to conversion of legacy documents from DocBook 4.x to DocBook V5.0. https://docbook.org/docs/howto/howto.xml
 
 == References
 
