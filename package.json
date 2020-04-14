@@ -11,6 +11,8 @@
   "dependencies": {
     "@asciidoctor/core": "^2.1.1",
     "@asciidoctor/docbook-converter": "^2.0.0",
+    "@asciidoctor/manpage-converter": "^1.0.0",
+    "asciidoctor": "^2.1.1",
     "cheerio": "^1.0.0-rc.3",
     "xml-js": "^1.6.11",
     "xml2js": "^0.4.23"

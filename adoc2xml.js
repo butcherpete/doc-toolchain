@@ -6,25 +6,15 @@
  */
 'use strict';
 
-const fs = require('fs')
 const asciidoctor = require('@asciidoctor/core')()
 require('@asciidoctor/docbook-converter')()
 
 const options = {
-	attributes: { backend: 'docbook5', doctype: 'book', docinfo: 'shared' },
-  standalone: true
+	backend: 'docbook5', 
+	doctype: 'article',
+  standalone: true,
+	safe: 'safe',
+	to_file: './output/jack.xml'
 }
 
-const content = require('fs').readFileSync('./input/asciidoc-writers-guide.adoc');
-
-const docbook = asciidoctor.convert(content, options);
-
-//console.log(docbook);
-
-fs.writeFile('./output/asciidoc-writers-bat.xml', docbook, err => {
-  if (err) {
-    console.error(err)
-    return
-  }
-  //file written successfully
-})
+asciidoctor.convertFile('./input/quickstart.adoc', options);
