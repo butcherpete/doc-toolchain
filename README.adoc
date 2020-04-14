@@ -11,7 +11,53 @@ Use ADOC or other DSL to write articles that are consistent with DOCBOOK standar
 * Convert DOCBOOK to PDF
 * Convert DOCBOOK.JSON to CMS.JSON
 
+== Directories
 
+----
+root
+├── .git 
+├── README.adoc 
+├── index.js 
+├── package.json
+├── package-lock.json
+├── input/
+│   ├── xml/
+│   │   ├── howto.xml 
+│   │   ├── docinfo/
+│   │   │   └── docinfo.xml
+│   │   ├── book/
+│   │   │   └── book.xml
+│   │   ├── man/ 
+│   │   │   └── man.xml 
+│   │   ├── article/
+│   │   │   ├── home.xml
+│   │   │   ├── pathfinder.xml
+│   │   │   ├── concept.xml
+│   │   │   ├── tutorial.xml
+│   │   │   └── reference.xml
+│   │   └── other/ 
+│   │       └── other.xml
+│   └── asciidoc/ 
+│       ├── asciidoc-writers-guide.adoc 
+│       ├── quickstart.adoc 
+│       ├── book/
+│       │   └── book.adoc 
+│       ├── man/ 
+│       │   └── book.adoc 
+│       ├── article/
+│       │   ├── home.adoc 
+│       │   ├── pathfinder.adoc 
+│       │   ├── concept.adoc 
+│       │   ├── tutorial.adoc 
+│       │   └── reference.adoc 
+│       └── other/
+│           └── other.adoc 
+├── output/
+│   ├── pdf/
+│   ├── json/
+│   └── prismic-json/
+└── node_modules
+----
 
 == Ideas
 
@@ -20,6 +66,9 @@ Use ADOC or other DSL to write articles that are consistent with DOCBOOK standar
 * Use DOCBOOK as document database?
 * Choose XML to JSON package: xml2js, xml-js, cheerio 
 * docinfo https://asciidoctor.org/docs/user-manual/#docinfo-file
+
+
+
 
 == Code
 
