@@ -24,7 +24,10 @@ root
 │   ├── xml/
 │   │   ├── howto.xml 
 │   │   ├── docinfo/
-│   │   │   └── docinfo.xml
+│   │   │   ├── docinfo.xml
+│   │   │   ├── docinfo-footer.xml
+│   │   │   ├── <docname>-docinfo.xml
+│   │   │   └── <docname>-docinfo-footer.xml
 │   │   ├── book/
 │   │   │   └── book.xml
 │   │   ├── man/ 
