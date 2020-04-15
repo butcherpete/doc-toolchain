@@ -2,8 +2,8 @@
 
 // Plugins
 const {src, dest, files, series} = require('gulp'),
-	asciidoctor = require('gulp-asciidoctor'),
-	//asciidoctor = require('@asciidoctor/core')(),
+	//asciidoctor = require('gulp-asciidoctor'),
+	asciidoctor = require('@asciidoctor/core')(),
 	//dbConverter = require('@asciidoctor/docbook-converter')(),
   //	pandoc = require('gulp-pandoc'),
   nodePandoc = require('node-pandoc'),
@@ -60,6 +60,34 @@ function createPdf(cb) {
 	nodePandoc(src, args, callback)
 	cb();
 };
+
+
+// Transform ADOC to Docbook 
+function createDocbook(cb) {
+
+const asciidoctor = require('@asciidoctor/core')() 
+require('@asciidoctor/docbook-converter')()
+
+const options = {
+	backend: 'docbook5', 
+	doctype: 'article',
+  standalone: true,
+	safe: 'safe',
+	to_file: './output/xml/julian.xml'
+}
+
+asciidoctor.convertFile('./input/adoc/quickstart.adoc', options);
+cb();
+
+};
+
+
+
+// Transform XML to JSON
+function createJson(cb) {
+};
+
+
 
 
 /*
@@ -127,6 +155,7 @@ exports.createHtml = createHtml;
 exports.createXml = createXml;
 exports.createJson = createJson;
 exports.createPdf = createPdf;
+exports.createDocbook = createDocbook;
 exports.default = series(clean, createHtml);
 
 
