@@ -21,6 +21,8 @@
     "cheerio": "^1.0.0-rc.3",
     "del": "^5.1.0",
     "gulp-asciidoctor": "^1.5.5-4.3",
+    "gulp-print": "^5.0.2",
+    "gulp-xml2js": "^0.1.1",
     "xml-js": "^1.6.11",
     "xml2js": "^0.4.23"
   },
