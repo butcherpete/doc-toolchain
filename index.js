@@ -2,19 +2,18 @@ const fs = require('fs');
 const xml2js = require('xml2js');
 const parser = new xml2js.Parser();
 
-fs.readFileSync('./input/howto.xml', function(err,data){
+fs.readFileSync('./input/xml/howto.xml', function(err,data){
 	if(err) {
 		console.log("Could not open file " + err);
 		process.exit(1);
 	}
 
-/*
 	parser.parseString(data, function (err, result) {
 		console.dir(result);
 		console.log('Done');
 		});
-*/
 
+/*
 let str= '<Customers>\
   <Customer>\
       <first>JIM</first>\
@@ -26,6 +25,7 @@ let str= '<Customers>\
   </Customer>\
 </Customers>'
 
+*/
 
 	parser.parseString(str, function (err, result) {
 		console.dir(result);

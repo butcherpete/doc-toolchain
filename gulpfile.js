@@ -5,6 +5,8 @@ const {src, dest, files, series} = require('gulp'),
 	asciidoctor = require('gulp-asciidoctor'),
 	//asciidoctor = require('@asciidoctor/core')(),
 	//dbConverter = require('@asciidoctor/docbook-converter')(),
+  //	pandoc = require('gulp-pandoc'),
+  nodePandoc = require('node-pandoc'),
 	gxml = require('gulp-xml2js'),
 	del = require('del'),
 	watch = require('gulp-watch'),
@@ -26,6 +28,8 @@ const PATH_OUT = 'output/';
 const HTML_OUT = PATH_OUT + 'html/';
 // XML output
 const XML_OUT = PATH_OUT + 'xml/';
+// PDF output
+const PDF_OUT = PATH_OUT + 'pdf/';
 //Output folder for documentation
 var PATH_OUT_DOC = PATH_OUT + '/docs';
 
@@ -43,6 +47,34 @@ function createHtml() {
     .pipe(dest(HTML_OUT))
 		.pipe(print());
 }
+
+// Transform ADOC to PDF 
+function createPdf(cb) {
+
+	let src = 'ADOC_TEST';
+	let args = '-f docbook --pdf-engine=xelatex -s ./output/xml/quickstart.xml -o ./output/pdf/howto.pdf';
+	const callback = (err, result) => {
+		if (err) console.error('Oh Noes: ',err)
+		return console.log(result), result	
+	}
+	nodePandoc(src, args, callback)
+	cb();
+};
+
+
+/*
+	return src(ADOC_TEST)
+		.pipe(print())
+  	.pipe(nodePandoc({
+			from: 'asciidoc',
+			to: 'pdf',
+			ext: '.pdf',
+			args: ['--smart']
+		}))
+    .pipe(dest(PDF_OUT))
+		.pipe(print());
+*/
+
 
 // DOCBOOK Transform ADOC to XML 
 function createXml() {
@@ -94,6 +126,7 @@ exports.clean = clean;
 exports.createHtml = createHtml;
 exports.createXml = createXml;
 exports.createJson = createJson;
+exports.createPdf = createPdf;
 exports.default = series(clean, createHtml);
 
 

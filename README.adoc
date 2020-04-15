@@ -64,7 +64,6 @@ root
 
 == Ideas
 
-* Use gulp?
 * Identify all libraries
 * Use DOCBOOK as document database?
 * Choose XML to JSON package: xml2js, xml-js, cheerio 
@@ -78,11 +77,14 @@ root
 adoc2xml.js::
 	Converts `asciidoctor-writers-guide.adoc` to DocBook using asciidoctor-docbook.js. See https://github.com/asciidoctor/asciidoctor-docbook.js/tree/master
 
-docbook2json.js::
+sample.js::
 	Converts `howto.xml` to JSON using xml-js.
 
 index.js::
-	Converts `howto.xml` to JSON using xml2js.
+	Converts `howto.xml` to JSON using xml2js. DOES NOT WORK
+
+gulpfile.js::
+	Converts ADOC to HTML; XML to PDF
 
 == Asciidoc Block Structure
 
