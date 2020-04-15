@@ -84,7 +84,7 @@ index.js::
 	Converts `howto.xml` to JSON using xml2js. DOES NOT WORK
 
 gulpfile.js::
-	Converts ADOC to HTML; ADOC to XML;  XML to PDF; 
+	Converts ADOC to HTML; ADOC to XML;  XML to PDF; XML to JSON 
 
 == Asciidoc Block Structure
 

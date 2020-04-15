@@ -9,7 +9,8 @@ const {src, dest, files, series} = require('gulp'),
   nodePandoc = require('node-pandoc'),
 	convert = require('xml-js'),
 	fs = require('fs'),
-	gxml = require('gulp-xml2js'),
+	rename = require('gulp-rename'),
+	gxml = require('gulp-xml'),
 	xml2js = require('xml2js'),
 	del = require('del'),
 	watch = require('gulp-watch'),
@@ -98,6 +99,34 @@ function createJson(cb) {
 
 // Transform XML to JSON
 function createJson(cb) {
+	src('./output/xml/quickstart.xml')
+		.pipe(gxml({
+			parseOpts: {
+				trim: true,
+				strict: false
+			},
+			buildOpts: {
+				renderOpts: {
+					pretty: false
+				},
+				allowSurrogateChars: true,
+				cdata: true
+			},
+			callback: function (result) {
+				return result.replace(/search/g, 'MySearch');
+			}
+		}))
+	.pipe(rename({
+		basename: 'dist'
+	}))
+	.pipe(dest('./output/json'));
+	cb();
+};
+
+
+/*
+// Transform XML to JSON
+function createJson(cb) {
 
 	let xml = fs.readFileSync('./input/xml/howto.xml', 'utf8'); 
 	let parser = new xml2js.Parser();
@@ -113,7 +142,7 @@ function createJson(cb) {
 	console.log(json);
 	cb();
 };
-
+*/
 /*
 	return src(ADOC_TEST)
 		.pipe(print())
