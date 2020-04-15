@@ -7,7 +7,10 @@ const {src, dest, files, series} = require('gulp'),
 	//dbConverter = require('@asciidoctor/docbook-converter')(),
   //	pandoc = require('gulp-pandoc'),
   nodePandoc = require('node-pandoc'),
+	convert = require('xml-js'),
+	fs = require('fs'),
 	gxml = require('gulp-xml2js'),
+	xml2js = require('xml2js'),
 	del = require('del'),
 	watch = require('gulp-watch'),
 	print = require('gulp-print').default;
@@ -78,17 +81,38 @@ const options = {
 
 asciidoctor.convertFile('./input/adoc/quickstart.adoc', options);
 cb();
-
 };
 
 
+/*
+// Transform XML to JSON
+function createJson(cb) {
+	let xml = fs.readFileSync('./input/xml/howtoxml', 'utf8');
+	let options = {ignoreComment: true, alwaysChildren: true, spaces: 4
+	};
+	let result = convert.xml2js(xml, options);
+	console.log(result);
+	cb();
+};
+*/
 
 // Transform XML to JSON
 function createJson(cb) {
+
+	let xml = fs.readFileSync('./input/xml/howto.xml', 'utf8'); 
+	let parser = new xml2js.Parser();
+	let options = {trim: true, strict: false};
+
+	const callback = (err, result) => {
+		if (err) console.error('Oh Noes: ',err)
+		return console.log(result), result	
+	};
+
+  console.log(xml);	
+	let json = parser.parseString(xml, options, callback);
+	console.log(json);
+	cb();
 };
-
-
-
 
 /*
 	return src(ADOC_TEST)
@@ -119,6 +143,7 @@ function createXml() {
 
 // Transform XML to JSON
 
+/*
 function createJson() {
 	return src('input/howto.xml')
 		.pipe(print())
@@ -127,7 +152,6 @@ function createJson() {
 		.pipe(print());
 }
 
-/*
  * Every change to ADOC or CSS generates new build 
 
 gulp.task('dev', function () {
