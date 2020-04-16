@@ -1,0 +1,521 @@
+{
+  "Page" : {
+    "page_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Page Title",
+        "placeholder" : "Enter a brief description of the page. This will show up in the \"site search\" results"
+      }
+    },
+    "table_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label" : "Table Title",
+        "placeholder" : "Enter Optional Table Title"
+      }
+    },
+    "prismic_display_name" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "Prismic Display Name",
+        "placeholder" : "Enter the Prismic Display Name"
+      }
+    },
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "UID",
+        "placeholder" : "unique-identifier-for-article-url"
+      }
+    },
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "Title",
+        "placeholder" : "Enter a Title"
+      }
+    },
+    "subtitle" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "allowTargetBlank" : true,
+        "label" : "subtitle",
+        "placeholder" : "Enter a Subtitle"
+      }
+    },
+    "date" : {
+      "type" : "Date",
+      "config" : {
+        "label" : "Date",
+        "placeholder" : "Enter a date"
+      }
+    },
+    "page_brief" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "allowTargetBlank" : true,
+        "label" : "Page Brief",
+        "placeholder" : "Enter Page Brief"
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : {
+          "image_with_caption" : [ ],
+          "example_box" : [ ],
+          "quote" : [ ],
+          "airtable" : [ ],
+          "reusable_content" : [ ],
+          "information_box" : [ ],
+          "code_block" : [ ],
+          "link_to_page" : [ ],
+          "admonition" : [ ],
+          "two_column_table" : [ ],
+          "text" : [ {
+            "name" : "code",
+            "display" : "code"
+          } ],
+          "reference_another_docs_content_--_test" : [ ],
+          "hero_block" : [ ],
+          "action_cards" : [ ]
+        },
+        "choices" : {
+          "text" : {
+            "type" : "Slice",
+            "fieldset" : "Text",
+            "description" : "A rich text section",
+            "icon" : "text_fields",
+            "non-repeat" : {
+              "indent_section" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "none", "small", "medium" ],
+                  "default_value" : "none",
+                  "label" : "Indent Section"
+                }
+              },
+              "is_boxed" : {
+                "type" : "Boolean",
+                "config" : {
+                  "placeholder_false" : "Does not have box around rich text",
+                  "placeholder_true" : "Has box around rich text",
+                  "default_value" : false,
+                  "label" : "Is Boxed"
+                }
+              },
+              "text" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading2, heading3, heading4, strong, em, hyperlink, list-item, o-list-item, o-list-item",
+                  "label" : "Rich Text",
+                  "placeholder" : "Add some rich text",
+                  "labels" : {
+                    "" : [ {
+                      "name" : "code"
+                    } ]
+                  }
+                }
+              }
+            },
+            "repeat" : { },
+            "display" : "list"
+          },
+          "CSV Table" : {
+            "type" : "Slice",
+            "fieldset" : "CSV Table",
+            "description" : "Paste in a CSV Table",
+            "icon" : "text_fields",
+            "non-repeat" : {
+              "indent_section" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "none", "small", "medium" ],
+                  "default_value" : "none",
+                  "label" : "Indent Section"
+                }
+              },
+              "optional_title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label" : "Optional Title",
+                  "placeholder" : "Add Optional Title"
+                }
+              },
+              "does_this_table_have_headers_" : {
+                "type" : "Boolean",
+                "config" : {
+                  "placeholder_false" : "false",
+                  "placeholder_true" : "true",
+                  "default_value" : false,
+                  "label" : "Does this table have headers?"
+                }
+              },
+              "csv_table" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading2, heading3, heading4, strong, em, hyperlink, list-item, o-list-item, o-list-item",
+                  "label" : "CSV table",
+                  "placeholder" : "Paste in CSV Table",
+                  "labels" : {
+                    "" : [ {
+                      "name" : "code"
+                    } ]
+                  }
+                }
+              }
+            },
+            "display" : "list"
+          },
+          "image_with_caption" : {
+            "type" : "Slice",
+            "fieldset" : "Image with Caption",
+            "description" : "An image with an optional caption",
+            "icon" : "image",
+            "non-repeat" : {
+              "indent_section" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "none", "small", "medium" ],
+                  "default_value" : "none",
+                  "label" : "Indent Section"
+                }
+              },
+              "image_text" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink",
+                  "label" : "Image Text",
+                  "placeholder" : "Enter some text above the image"
+                }
+              },
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 1200
+                  },
+                  "thumbnails" : [ {
+                    "name" : "mobile",
+                    "width" : 768,
+                    "height" : null
+                  } ],
+                  "label" : "Image"
+                }
+              },
+              "image_caption" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Image Caption",
+                  "placeholder" : "Enter a caption for the image"
+                }
+              }
+            },
+            "repeat" : { },
+            "display" : "list"
+          },
+          "quote" : {
+            "type" : "Slice",
+            "fieldset" : "Quote",
+            "description" : "A section for displaying quotes",
+            "icon" : "chat",
+            "display" : "list",
+            "non-repeat" : {
+              "content" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, strong, em, hyperlink",
+                  "allowTargetBlank" : true,
+                  "label" : "Quote"
+                }
+              },
+              "quotee" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Quotee"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "information_box" : {
+            "type" : "Slice",
+            "fieldset" : "Information Box",
+            "description" : "Information Box",
+            "icon" : "info",
+            "display" : "list",
+            "non-repeat" : {
+              "indent_section" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "none", "small", "medium" ],
+                  "default_value" : "none",
+                  "label" : "Indent Section"
+                }
+              },
+              "rich_text_block" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Rich Text Block",
+                  "placeholder" : "Enter Content"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "code_block" : {
+            "type" : "Slice",
+            "fieldset" : "Code Block",
+            "description" : "Enter Code Type and Code Block",
+            "icon" : "code",
+            "display" : "list",
+            "non-repeat" : { },
+            "repeat" : {
+              "optional_description" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Optional Description",
+                  "placeholder" : "Enter Optional Description",
+                  "labels" : {
+                    "" : [ {
+                      "name" : "code"
+                    } ]
+                  }
+                }
+              },
+              "code_language" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Code Language",
+                  "placeholder" : "Enter Code Language (e.g. Ruby, Javascript, Python, etc...)"
+                }
+              },
+              "code_block" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Code Block",
+                  "placeholder" : "Enter Code Block"
+                }
+              }
+            }
+          },
+          "link_to_page" : {
+            "type" : "Slice",
+            "fieldset" : "Link to Page",
+            "description" : "Link to another Page",
+            "icon" : "insert_link",
+            "display" : "list",
+            "non-repeat" : {
+              "link_text" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Link Text",
+                  "placeholder" : "Enter Link Text"
+                }
+              },
+              "link_to_page" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Link to Page",
+                  "placeholder" : "Choose Link"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "admonition" : {
+            "type" : "Slice",
+            "fieldset" : "Admonition",
+            "description" : "Enter Admonition",
+            "icon" : "check_circle",
+            "display" : "list",
+            "non-repeat" : {
+              "admonition_type" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "Caution", "Warning", "Success" ],
+                  "default_value" : "Caution",
+                  "label" : "Admonition Type",
+                  "placeholder" : "Select Admonition Type (more types can be added)"
+                }
+              },
+              "admonition_content" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Admonition Content",
+                  "placeholder" : "Enter Admonition Content"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "two_column_table" : {
+            "type" : "Slice",
+            "fieldset" : "Two Column Table",
+            "description" : "Two Column Table",
+            "icon" : "looks_two",
+            "display" : "list",
+            "non-repeat" : {
+              "optional_column_1_header" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph",
+                  "label" : "Optional Column 1 Header",
+                  "placeholder" : "Optional Column 1 Header"
+                }
+              },
+              "optional_column_2_header" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph",
+                  "label" : "Optional Column 2 Header",
+                  "placeholder" : "Optional Column 2 Header"
+                }
+              }
+            },
+            "repeat" : {
+              "row___cell_one" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph",
+                  "label" : "Row:  Cell One",
+                  "placeholder" : "Row:  Cell One"
+                }
+              },
+              "row__cell_two" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph",
+                  "label" : "Row: Cell Two",
+                  "placeholder" : "Row: Cell Two"
+                }
+              }
+            }
+          },
+          "reference_another_docs_content_--_test" : {
+            "type" : "Slice",
+            "fieldset" : "Reference another docs content -- Test",
+            "description" : "Reference another docs content -- Test",
+            "icon" : "face",
+            "display" : "list",
+            "non-repeat" : {
+              "table_reference" : {
+                "type" : "Link",
+                "config" : {
+                  "select" : "document",
+                  "label" : "Table reference",
+                  "placeholder" : "Table Reference"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "hero_block" : {
+            "type" : "Slice",
+            "fieldset" : "Hero Block",
+            "description" : "Optional ",
+            "icon" : "view_compact",
+            "display" : "list",
+            "non-repeat" : {
+              "hero_title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading2",
+                  "label" : "Hero Title"
+                }
+              },
+              "hero_subtitle" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading4",
+                  "label" : "Hero Subtitle"
+                }
+              },
+              "intro_text" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, hyperlink",
+                  "label" : "Intro text"
+                }
+              },
+              "hero_image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 427,
+                    "height" : 327
+                  },
+                  "thumbnails" : [ ],
+                  "label" : "Hero Image"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "action_cards" : {
+            "type" : "Slice",
+            "fieldset" : "Action Cards",
+            "description" : "Detailed suggestions to guide the user",
+            "icon" : "view_agenda",
+            "display" : "list",
+            "non-repeat" : {
+              "action_cards_title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading5",
+                  "label" : "Action Cards Title"
+                }
+              }
+            },
+            "repeat" : {
+              "action_card_image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 299,
+                    "height" : 139
+                  },
+                  "thumbnails" : [ ],
+                  "label" : "Action Card Image"
+                }
+              },
+              "action_card_title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading4",
+                  "label" : "Action Card Title"
+                }
+              },
+              "action_card_description" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, strong, em, hyperlink",
+                  "label" : "Action Card Description"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
