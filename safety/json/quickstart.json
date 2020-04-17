@@ -1,0 +1,777 @@
+{
+    "declaration": {
+        "attributes": {
+            "version": "1.0",
+            "encoding": "UTF-8"
+        }
+    },
+    "elements": [
+        {
+            "type": "instruction",
+            "name": "asciidoc-toc",
+            "instruction": ""
+        },
+        {
+            "type": "instruction",
+            "name": "asciidoc-numbered",
+            "instruction": ""
+        },
+        {
+            "type": "element",
+            "name": "BOOK",
+            "attributes": {
+                "XMLNS": "http://docbook.org/ns/docbook",
+                "XMLNS:XL": "http://www.w3.org/1999/xlink",
+                "VERSION": "5.0",
+                "XML:LANG": "en"
+            },
+            "elements": [
+                {
+                    "type": "element",
+                    "name": "INFO",
+                    "elements": [
+                        {
+                            "type": "element",
+                            "name": "TITLE",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "Quickstart <02>"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "DATE",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "2020-04-12"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "element",
+                    "name": "PREFACE",
+                    "elements": [
+                        {
+                            "type": "element",
+                            "name": "TITLE"
+                        },
+                        {
+                            "type": "element",
+                            "name": "ABSTRACT",
+                            "elements": [
+                                {
+                                    "type": "element",
+                                    "name": "SIMPARA",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "Get up and running in minutes on the RMS risk analysis platform."
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "SIMPARA",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "The RMS risk analysis platform enables authenticated user accounts to securely connect and process data using their RMS user accounts."
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "SIMPARA",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "You can connect to the RMS risk analysis platform and begin sending calls as soon as you have a "
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "XREF",
+                                    "attributes": {
+                                        "LINKEND": "RMS user account"
+                                    }
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "."
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "SIDEBAR",
+                            "elements": [
+                                {
+                                    "type": "element",
+                                    "name": "SIMPARA",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "The entire process requires three steps:"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "ITEMIZEDLIST",
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "LISTITEM",
+                                            "elements": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "SIMPARA",
+                                                    "elements": [
+                                                        {
+                                                            "type": "text",
+                                                            "text": "Obtain API keys"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "LISTITEM",
+                                            "elements": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "SIMPARA",
+                                                    "elements": [
+                                                        {
+                                                            "type": "text",
+                                                            "text": "Obtain an access token"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "LISTITEM",
+                                            "elements": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "SIMPARA",
+                                                    "elements": [
+                                                        {
+                                                            "type": "text",
+                                                            "text": "Make a test API request"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "NOTE",
+                            "elements": [
+                                {
+                                    "type": "element",
+                                    "name": "SIMPARA",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "Not a developer? Learn about the business side of RMS API services. RMS offers a variety of resources that you can leverage to meet the needs of your business. Check out the "
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "LINK",
+                                            "attributes": {
+                                                "XL:HREF": "business-solutions.xml"
+                                            },
+                                            "elements": [
+                                                {
+                                                    "type": "text",
+                                                    "text": "RMS API Services Solutions"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "text",
+                                            "text": " to learn more."
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "element",
+                    "name": "CHAPTER",
+                    "attributes": {
+                        "XML:ID": "_step_1_obtain_api_keys"
+                    },
+                    "elements": [
+                        {
+                            "type": "element",
+                            "name": "TITLE",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "Step 1: Obtain API keys"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "SIMPARA",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "Access to the RMS risk analysis platform is controlled by means of user credentials and "
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "LINK",
+                                    "attributes": {
+                                        "XL:HREF": "api-keys.xml"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "API keys"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "."
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "SIMPARA",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "During "
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "XREF",
+                                    "attributes": {
+                                        "LINKEND": "onboarding"
+                                    }
+                                },
+                                {
+                                    "type": "text",
+                                    "text": ", a member of RMS Site Reliability Engineering will contact you and provide you with a username, password, and a set of API keys. RMS provides every account with three types of API keys: "
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "EMPHASIS",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "evaluation keys"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "text",
+                                    "text": ", "
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "EMPHASIS",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "integration keys"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "text",
+                                    "text": " for testing, and "
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "EMPHASIS",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "production keys"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "text",
+                                    "text": " for running live transactions."
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "SIMPARA",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "Every call to authentication service must specify your user name, password, and API key. If you do not include your API key when making an API request, or use an incorrect or outdated API key, the RMS risk analysis platform  returns an "
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "LINK",
+                                    "attributes": {
+                                        "LINKEND": "li-error-codes"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "error"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "."
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "NOTE",
+                            "elements": [
+                                {
+                                    "type": "element",
+                                    "name": "SIMPARA",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "You’ll want to use your evaluation key to get your access token for trying out procedures and use cases.  Use your integration key for testing and development. Using these API keys instead of the production key will ensure that you don not accidentally modify production data."
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "element",
+                    "name": "CHAPTER",
+                    "attributes": {
+                        "XML:ID": "_step_2_obtain_an_access_token"
+                    },
+                    "elements": [
+                        {
+                            "type": "element",
+                            "name": "TITLE",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "Step 2: Obtain an access token"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "SIMPARA",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "RMS uses "
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "EMPHASIS",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "token-based authentication"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "text",
+                                    "text": " to enable applications to access the risk analysis platform and make requests using our APIs."
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "SIMPARA",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "The access token is a text string that your application must include in the request header. Your application must provide an access token as a credential whenever it calls an API resource. The access token informs the API that the bearer of the token is authorized to access the API and to perform actions within the authorized scope."
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "SIMPARA",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "To obtain an access token, you must make a call to the authentication service using your client credentials."
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "PROGRAMLISTING",
+                            "attributes": {
+                                "LANGUAGE": "curl",
+                                "LINENUMBERING": "numbered"
+                            },
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "curl --location --request POST 'https://api.preprod.rms.com/mi/puma/auth/v1/token' \\\n--header 'Content-Type: application/json' \\\n--header 'Authorization: Basic cm1zLXBwZS1ybGF4LWRldi1nZW5lcmFsXHRvZGQ6VDFuazJyVDM0bDVlciE=' \\\n--data-raw '{\n \"grantType\": \"password\",\n \"username\": \"xxxxxxxxxxxxx\",\n \"password\": \"xxxxxxxxxxxxx\",\n \"clientName\": \"RLaX\"\n}\n'"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "SIMPARA",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "The RMS authorization server returns an access token in the "
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "LITERAL",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "access_token"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "text",
+                                    "text": " field. You must set the access token in the Authorization header of subsequent API calls."
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "PROGRAMLISTING",
+                            "attributes": {
+                                "LANGUAGE": "json",
+                                "LINENUMBERING": "numbered"
+                            },
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "{\n    \"idToken\": \"xxxxxx\",\n    \"accessToken\": \"xxxxxx\",\n    \"refreshToken\": \"xxxxxx\",\n    \"expiresIn\": 3600,\n    \"tokenType\": \"Bearer\"\n}"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "element",
+                    "name": "CHAPTER",
+                    "attributes": {
+                        "XML:ID": "_step_3_make_a_test_api_request"
+                    },
+                    "elements": [
+                        {
+                            "type": "element",
+                            "name": "TITLE",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "Step 3: Make a test API request"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "SIMPARA",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "You can now confirm that integration is working by making a test API request to RMS risk analysis platform."
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "SIMPARA",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "The Exposure Data Module is cloud-based data structure that stores and managed all of your exposure data."
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "SIMPARA",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "If you already have an EDM or an EDM was created for you during onboarding you can use the "
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "LITERAL",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "GET"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "LITERAL",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "/datasources/{datasourcename}"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "text",
+                                    "text": " to retrieve information about your EDM from the platform."
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "PROGRAMLISTING",
+                            "attributes": {
+                                "LANGUAGE": "curl",
+                                "LINENUMBERING": "numbered"
+                            },
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "curl --location --request GET 'https://api.preprod.rms.com/mi/api/v1/datasources/postman_edm' \\\n--header ': ' \\\n--header 'Authorization: Bearer XXXXXXXXXX'"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "SIMPARA",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "If you do not know the name of your EDM, submit the query without the "
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "LITERAL",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "datasourcename"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "text",
+                                    "text": " parameter to view information about all of the EDM accessible to your account."
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "NOTE",
+                            "elements": [
+                                {
+                                    "type": "element",
+                                    "name": "SIMPARA",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "The code examples display placeholder access tokens. Replace the strings in the examples with the access token returned by the authentication service."
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "SIMPARA",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "A successful request returns information about the specified EDM including the "
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "LITERAL",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "datasourceId"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "text",
+                                    "text": ", "
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "LITERAL",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "datasourceName"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "text",
+                                    "text": ", "
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "LITERAL",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "ownerId"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "text",
+                                    "text": ", and "
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "LITERAL",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "metrics"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "."
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "PROGRAMLISTING",
+                            "attributes": {
+                                "LANGUAGE": "json",
+                                "LINENUMBERING": "numbered"
+                            },
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "{\n  \"datasourceId\": 345,\n  \"datasourceName\": \"postman_edm\",\n  \"dbType\": 3,\n  \"permissionType\": 12,\n  \"isDefault\": false,\n  \"metrics\": {\n    \"AggPortCount\": 0,\n    \"LastModified\": \"2020-02-21 19:40:15.19\",\n    \"TreatyCount\": 0,\n    \"Size\": \"500 MB\",\n    \"EDMVersion\": \"18\",\n    \"PortCount\": 0,\n    \"LocCount\": 2,\n    \"AcctCount\": 10,\n    \"CedantCount\": 0\n  },\n  \"ownerId\": \"umesh chander\",\n  \"owner\": \"umesh chander\"\n}"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "element",
+                    "name": "CHAPTER",
+                    "attributes": {
+                        "XML:ID": "_next_steps"
+                    },
+                    "elements": [
+                        {
+                            "type": "element",
+                            "name": "TITLE",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "Next Steps"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "SIMPARA",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "Congratulations! Now that you have verified that you can connect to the RMS risk analysis platform, read on to learn how you can use RMS APIs to manage your data."
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "ITEMIZEDLIST",
+                            "elements": [
+                                {
+                                    "type": "element",
+                                    "name": "LISTITEM",
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "SIMPARA",
+                                            "elements": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "LINK",
+                                                    "attributes": {
+                                                        "XL:HREF": "import-exposure.xml"
+                                                    },
+                                                    "elements": [
+                                                        {
+                                                            "type": "text",
+                                                            "text": "Risk Modeler 2.0 Quickstart"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "LISTITEM",
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "SIMPARA",
+                                            "elements": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "LINK",
+                                                    "attributes": {
+                                                        "XL:HREF": "import-exposure.xml"
+                                                    },
+                                                    "elements": [
+                                                        {
+                                                            "type": "text",
+                                                            "text": "Location Intelligence Quickstart"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

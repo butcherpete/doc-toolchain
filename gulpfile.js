@@ -1,11 +1,11 @@
 'use strict';
 
 // Plugins
-const {src, dest, files, series} = require('gulp'),
-	//asciidoctor = require('gulp-asciidoctor'),
-	asciidoctor = require('@asciidoctor/core')(),
+const {gulp, src, dest, files, series} = require('gulp'),
+	asciidoctor = require('gulp-asciidoctor'),
+	//asciidoctor = require('@asciidoctor/core')(),
 	//dbConverter = require('@asciidoctor/docbook-converter')(),
-  //	pandoc = require('gulp-pandoc'),
+  pandoc = require('gulp-pandoc'),
   nodePandoc = require('node-pandoc'),
 	convert = require('xml-js'),
 	fs = require('fs'),
@@ -19,9 +19,13 @@ const {src, dest, files, series} = require('gulp'),
 // Dir aliases 
 const PATH_IN = './';
 //Root input for documentation
-const ADOC_IN = PATH_IN + 'input/';
+const ADOC_IN = PATH_IN + 'input/adoc/';
 //Root documentation start page
-const ADOC_TEST = ADOC_IN + '*.adoc';
+const ADOC_TEST = ADOC_IN + 'quickstart.adoc';
+//Root input for documentation
+const XML_IN = PATH_IN + 'input/xml/';
+//Root documentation start page
+const XML_TEST = XML_IN + 'quickstart.xml';
 //Filter for documentation CSS source files
 const PATH_IN_DOC_CSS = PATH_IN + '**/*.css';
 
@@ -39,7 +43,7 @@ var PATH_OUT_DOC = PATH_OUT + '/docs';
 
 // CLEAN assets WORKS
 function clean() {
-  return del(["./output/html/"]);
+  return del(["./output/*"]);
 }
 
 // Transform ADOC to HTML WORKS
@@ -52,16 +56,46 @@ function createHtml() {
 		.pipe(print());
 }
 
-// Transform ADOC to PDF 
+
+/*
+// Transform XML to PDF; DOESN'T WORK
+//
+function createPdf() {
+	return src(XML_TEST)
+	.pipe(print())
+	.pipe(pandoc({
+		from: 'docbook',
+		to: 'latex',
+		ext: '.pdf',
+		args: ['--pdf-engine=xelatex']
+		}))
+		.pipe(print())
+    .pipe(dest(PDF_OUT))
+    .pipe(print()
+		);
+	console.log(PDF_OUT);
+}
+*/
+
+// Transform XML to PDF Works!
 function createPdf(cb) {
 
-	let src = 'ADOC_TEST';
-	let args = '-f docbook --pdf-engine=xelatex -s ./output/xml/quickstart.xml -o ./output/pdf/howto.pdf';
+let input = XML_TEST;
+//let input = './input/xml/quickstart.xml'; 
+let output = './output/quickstart.pdf';
+
+let args = '-f docbook --pdf-engine=xelatex -s ' + input + ' -o ' + output; 
+
+	console.log(input);
+	console.log(output);
+	console.log(args);
+
 	const callback = (err, result) => {
 		if (err) console.error('Oh Noes: ',err)
 		return console.log(result), result	
 	}
-	nodePandoc(src, args, callback)
+	nodePandoc(input, args, callback)
+
 	cb();
 };
 
@@ -143,6 +177,7 @@ function createJson(cb) {
 	cb();
 };
 */
+
 /*
 	return src(ADOC_TEST)
 		.pipe(print())
@@ -209,7 +244,7 @@ exports.createXml = createXml;
 exports.createJson = createJson;
 exports.createPdf = createPdf;
 exports.createDocbook = createDocbook;
-exports.default = series(clean, createHtml);
+exports.default = series(clean, createHtml, createPdf);
 
 
 

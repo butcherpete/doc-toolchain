@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?asciidoc-toc?>
+<?asciidoc-numbered?>
+<article xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
+<info>
+<title>Quickstart</title>
+<date>2020-04-12</date>
+<author>
+<personname>
+<firstname>Todd</firstname>
+<surname>Smith</surname>
+</personname>
+</author>
+<authorinitials>TS</authorinitials>
+<revhistory>
+<revision>
+<revnumber>1.0</revnumber>
+<date>2020-04-12</date>
+<authorinitials>TS</authorinitials>
+</revision>
+</revhistory>
+<author>
+  <personname>
+    <firstname>Karma</firstname>
+    <surname>Chameleon</surname>
+  </personname>
+  <affiliation>
+    <jobtitle>Word SWAT Team Leader</jobtitle>
+  </affiliation>
+</author>
+
+<keywordset>
+  <keyword>open source</keyword>
+  <keyword>documentation</keyword>
+  <keyword>adventure</keyword>
+</keywordset>
+
+<printhistory>
+  <para>April, 2019. Twenty-sixth printing.</para>
+</printhistory>
+</info>
+<abstract>
+<simpara>Get up and running in minutes on the RMS risk analysis platform.</simpara>
+</abstract>
+<simpara>The RMS risk analysis platform enables authenticated user accounts to securely connect and process data using their RMS user accounts.</simpara>
+<simpara>You can connect to the RMS risk analysis platform and begin sending calls as soon as you have a <xref linkend="RMS user account"/>.</simpara>
+<sidebar>
+<simpara>The entire process requires three steps:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Obtain API keys</simpara>
+</listitem>
+<listitem>
+<simpara>Obtain an access token</simpara>
+</listitem>
+<listitem>
+<simpara>Make a test API request</simpara>
+</listitem>
+</itemizedlist>
+</sidebar>
+<note>
+<simpara>Not a developer? Learn about the business side of RMS API services. RMS offers a variety of resources that you can leverage to meet the needs of your business. Check out the <link xl:href="business-solutions.xml">RMS API Services Solutions</link> to learn more.</simpara>
+</note>
+<section xml:id="_step_1_obtain_api_keys">
+<title>Step 1: Obtain API keys</title>
+<simpara>Access to the RMS risk analysis platform is controlled by means of user credentials and <link xl:href="api-keys.xml">API keys</link>.</simpara>
+<simpara>During <xref linkend="onboarding"/>, a member of RMS Site Reliability Engineering will contact you and provide you with a username, password, and a set of API keys. RMS provides every account with three types of API keys: <emphasis>evaluation keys</emphasis>, <emphasis>integration keys</emphasis> for testing, and <emphasis>production keys</emphasis> for running live transactions.</simpara>
+<simpara>Every call to authentication service must specify your user name, password, and API key. If you do not include your API key when making an API request, or use an incorrect or outdated API key, the RMS risk analysis platform  returns an <link linkend="li-error-codes">error</link>.</simpara>
+<note>
+<simpara>You&#8217;ll want to use your evaluation key to get your access token for trying out procedures and use cases.  Use your integration key for testing and development. Using these API keys instead of the production key will ensure that you don not accidentally modify production data.</simpara>
+</note>
+</section>
+<section xml:id="_step_2_obtain_an_access_token">
+<title>Step 2: Obtain an access token</title>
+<simpara>RMS uses <emphasis>token-based authentication</emphasis> to enable applications to access the risk analysis platform and make requests using our APIs.</simpara>
+<simpara>The access token is a text string that your application must include in the request header. Your application must provide an access token as a credential whenever it calls an API resource. The access token informs the API that the bearer of the token is authorized to access the API and to perform actions within the authorized scope.</simpara>
+<simpara>To obtain an access token, you must make a call to the authentication service using your client credentials.</simpara>
+<programlisting language="curl" linenumbering="numbered">curl --location --request POST 'https://api.preprod.rms.com/mi/puma/auth/v1/token' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic cm1zLXBwZS1ybGF4LWRldi1nZW5lcmFsXHRvZGQ6VDFuazJyVDM0bDVlciE=' \
+--data-raw '{
+ "grantType": "password",
+ "username": "xxxxxxxxxxxxx",
+ "password": "xxxxxxxxxxxxx",
+ "clientName": "RLaX"
+}
+'</programlisting>
+<simpara>The RMS authorization server returns an access token in the <literal>access_token</literal> field. You must set the access token in the Authorization header of subsequent API calls.</simpara>
+<programlisting language="json" linenumbering="numbered">{
+    "idToken": "xxxxxx",
+    "accessToken": "xxxxxx",
+    "refreshToken": "xxxxxx",
+    "expiresIn": 3600,
+    "tokenType": "Bearer"
+}</programlisting>
+</section>
+<section xml:id="_step_3_make_a_test_api_request">
+<title>Step 3: Make a test API request</title>
+<simpara>You can now confirm that integration is working by making a test API request to RMS risk analysis platform.</simpara>
+<simpara>The Exposure Data Module is cloud-based data structure that stores and managed all of your exposure data.</simpara>
+<simpara>If you already have an EDM or an EDM was created for you during onboarding you can use the <literal>GET</literal> <literal>/datasources/{datasourcename}</literal> to retrieve information about your EDM from the platform.</simpara>
+<programlisting language="curl" linenumbering="numbered">curl --location --request GET 'https://api.preprod.rms.com/mi/api/v1/datasources/postman_edm' \
+--header ': ' \
+--header 'Authorization: Bearer XXXXXXXXXX'</programlisting>
+<simpara>If you do not know the name of your EDM, submit the query without the <literal>datasourcename</literal> parameter to view information about all of the EDM accessible to your account.</simpara>
+<note>
+<simpara>The code examples display placeholder access tokens. Replace the strings in the examples with the access token returned by the authentication service.</simpara>
+</note>
+<simpara>A successful request returns information about the specified EDM including the <literal>datasourceId</literal>, <literal>datasourceName</literal>, <literal>ownerId</literal>, and <literal>metrics</literal>.</simpara>
+<programlisting language="json" linenumbering="numbered">{
+  "datasourceId": 345,
+  "datasourceName": "postman_edm",
+  "dbType": 3,
+  "permissionType": 12,
+  "isDefault": false,
+  "metrics": {
+    "AggPortCount": 0,
+    "LastModified": "2020-02-21 19:40:15.19",
+    "TreatyCount": 0,
+    "Size": "500 MB",
+    "EDMVersion": "18",
+    "PortCount": 0,
+    "LocCount": 2,
+    "AcctCount": 10,
+    "CedantCount": 0
+  },
+  "ownerId": "umesh chander",
+  "owner": "umesh chander"
+}</programlisting>
+</section>
+<section xml:id="_next_steps">
+<title>Next Steps</title>
+<simpara>Congratulations! Now that you have verified that you can connect to the RMS risk analysis platform, read on to learn how you can use RMS APIs to manage your data.</simpara>
+<itemizedlist>
+<listitem>
+<simpara><link xl:href="import-exposure.xml">Risk Modeler 2.0 Quickstart</link></simpara>
+</listitem>
+<listitem>
+<simpara><link xl:href="import-exposure.xml">Location Intelligence Quickstart</link></simpara>
+</listitem>
+</itemizedlist>
+</section>
+</article>
