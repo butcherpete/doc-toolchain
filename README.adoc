@@ -15,13 +15,15 @@ Workflow
 
 ----
 
-Adoc ---> Docbook ---> Json 
-							|
-					    Pdf
+.adoc ---> .xml ---> .json 
+             |
+             v
+             .pdf 
 
-Doc ----> Docbook ---> Json
-							|
-					    Pdf
+.doc --->  .xml ---> .json 
+             |
+             v
+             .pdf 
 
 ----
 
