@@ -11,6 +11,21 @@ Use ADOC or other DSL to write articles that are consistent with DOCBOOK standar
 * Convert DOCBOOK to PDF
 * Convert DOCBOOK.JSON to CMS.JSON
 
+Workflow
+
+----
+
+Adoc ---> Docbook ---> Json 
+							|
+					    Pdf
+
+Doc ----> Docbook ---> Json
+							|
+					    Pdf
+
+----
+
+
 == Directories
 
 ----
