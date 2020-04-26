@@ -7,6 +7,7 @@ const {gulp, src, dest, files, series} = require('gulp'),
   pandoc = require('gulp-pandoc'),
   nodePandoc = require('node-pandoc'),
 	convert = require('xml-js'),
+	path = require('path'),
 	fs = require('fs'),
 	rename = require('gulp-rename'),
 	//gxml = require('gulp-xml'),
@@ -15,37 +16,22 @@ const {gulp, src, dest, files, series} = require('gulp'),
 	watch = require('gulp-watch'),
 	print = require('gulp-print').default;
 
-// Dir aliases 
-const PATH_IN = './';
-//Root input for documentation
-const ADOC_IN = PATH_IN + 'input/adoc/';
-//Root documentation start page
-const ADOC_TEST = ADOC_IN + 'quickstart.adoc';
-//Root input for documentation
-const XML_IN = PATH_IN + 'input/xml/';
-//Root documentation start page
-const XML_TEST = XML_IN + 'quickstart.xml';
-//Filter for documentation CSS source files
-const PATH_IN_DOC_CSS = PATH_IN + '**/*.css';
+// INPUTS and OUTPUTS 
+const ADOC_IN = path.join(__dirname, '/input/adoc/');
+const XML_IN = path.join(__dirname, '/input/xml/');
+const DOCX_IN = path.join(__dirname, '/input/docx/');
+const ADOC_OUT = path.join(__dirname, '/output/adoc/');
+const XML_OUT = path.join(__dirname, '/output/xml/');
+const HMTL_OUT = path.join(__dirname, '/output/html/');
+const JSON_OUT = path.join(__dirname, '/output/json/');
 
-// OUTPUT
-//Root output folder (configured in .gitignore)
-const PATH_OUT = 'output/';
-// HTML output
-const HTML_OUT = PATH_OUT + 'html/';
-// XML output
-const XML_OUT = PATH_OUT + 'xml/';
-// PDF output
-const PDF_OUT = PATH_OUT + 'pdf/';
-//Output folder for documentation
-var PATH_OUT_DOC = PATH_OUT + '/docs';
 
-// CLEAN assets WORKS
+// Clean output 
 function clean() {
   return del(["./output/*"]);
 }
 
-// output directories
+// Create output directories
 
 function output(cb) {
   let xml = './output/xml';
@@ -106,10 +92,6 @@ asciidoctor.convertFile('./input/adoc/quickstart.adoc', options);
 cb();
 };
 
-
-
-
-
 // Transform XML to PDF Works!
 function xml2Pdf(cb) {
 
@@ -161,9 +143,6 @@ let args = '-f docx -t docbook -s ' + input + ' -o ' + output;
 
 	cb();
 };
-
-
-
 
 // Transform ADOC to Docbook  Works!
 function adoc2Xml(cb) {
