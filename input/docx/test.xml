@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE article>
+<article
+  xmlns="http://docbook.org/ns/docbook" version="5.0"
+  xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <info>
+    <title></title>
+  </info>
+<section xml:id="navigation-contexts">
+  <title><emphasis role="strong">Navigation Contexts</emphasis></title>
+  <para>
+    Within Developer Documentation the local navigation defines and
+    displays the content available to developers. This is its
+    <emphasis>context</emphasis>.
+  </para>
+  <para>
+    The local navigation supports three of navigation contexts:
+  </para>
+  <itemizedlist>
+    <listitem>
+      <blockquote>
+        <para>
+          Global. General developer documentation
+        </para>
+      </blockquote>
+    </listitem>
+    <listitem>
+      <blockquote>
+        <para>
+          Products. Product-specific developer documentation
+        </para>
+      </blockquote>
+    </listitem>
+  </itemizedlist>
+  <section xml:id="global-context">
+    <title><emphasis role="strong">Global Context</emphasis></title>
+    <para>
+      The Global Context displays 1) links to services (e.g. Risk
+      Modeler 2.0) and 2) links to topic pages that apply to every
+      service. (In the future, the quick start and API key information
+      will live here-- once there is an identical process across all
+      services.)
+    </para>
+    <itemizedlist>
+      <listitem>
+        <blockquote>
+          <para>
+            If the user clicks a Service link (e.g. Risk Modeler 2.0),
+            the navigation context switches the Product context and the
+            Home page for the selected product is displayed.
+          </para>
+        </blockquote>
+      </listitem>
+      <listitem>
+        <blockquote>
+          <para>
+            If the user clicks a Topic page link (e.g. Policies), the
+            appropriate page is displayed and the local navigation
+            remains in the Service context.
+          </para>
+        </blockquote>
+      </listitem>
+    </itemizedlist>
+    <para>
+      In Stripe, services in the Global Context navigation are
+      identified by unique icons.
+    </para>
+  </section>
+  <section xml:id="service-context">
+    <title><emphasis role="strong">Service Context</emphasis></title>
+    <itemizedlist>
+      <listitem>
+        <blockquote>
+          <para>
+            The specific context is identified at the top of the Service
+            Context navigation.
+          </para>
+        </blockquote>
+      </listitem>
+      <listitem>
+        <blockquote>
+          <para>
+            The Service Context local navigation displays links to topic
+            pages that apply to that product.
+          </para>
+        </blockquote>
+      </listitem>
+      <listitem>
+        <blockquote>
+          <para>
+            The Service Context local navigation does not display links
+            to topics that do not apply to that product.
+          </para>
+        </blockquote>
+      </listitem>
+      <listitem>
+        <blockquote>
+          <para>
+            The Service Context local navigation may display links to
+            outside resources or other contexts, but these links should
+            be at the displayed at the bottom of the location
+            navigation. Links to other context should be identifiable.
+          </para>
+        </blockquote>
+      </listitem>
+    </itemizedlist>
+    <para>
+      Topics are grouped in the Service Context navigation using
+      headers:
+    </para>
+  </section>
+</section>
+<section xml:id="risk-modeler-2.0-structure">
+  <title><emphasis role="strong">Risk Modeler 2.0
+  Structure</emphasis></title>
+  <para>
+    For the most current structure, please
+    <link xlink:href="https://docs.google.com/spreadsheets/d/16pwz4i5xEs_3jVR2JevijzFh3rgWjojTJY5ccpoadQA/edit#gid=1376123995">see
+    this document</link> (to be retired and should live in Prismic)
+  </para>
+</section>
+</article>

@@ -1,0 +1,182 @@
+= Quickstart
+Todd Smith
+v1.0, 2020-04-12
+:source-highlighter: coderay
+:coderay-linenums-mode: inline
+:coderay-css: class
+:backend: docbook5
+:doctype: article
+:docinfo: shared
+
+
+//header
+//  info
+//  title: RMS API Quickstart
+//  subtitle
+//  titleabbrev
+
+[abstract]
+Get up and running in minutes on the RMS risk analysis platform. 
+
+//task-overview
+
+The RMS risk analysis platform enables authenticated user accounts to securely connect and process data using their RMS user accounts.
+
+You can connect to the RMS risk analysis platform and begin sending calls as soon as you have a <<RMS user account>>. 
+
+****
+The entire process requires three steps:
+
+* Obtain API keys 
+* Obtain an access token
+* Make a test API request
+****
+
+NOTE: Not a developer? Learn about the business side of RMS API services. RMS offers a variety of resources that you can leverage to meet the needs of your business. Check out the xref:business-solutions.adoc[RMS API Services Solutions] to learn more.
+
+//task-prerequisites
+
+////
+authenticating the sender of a request and verifying that they have permission to access or manipulate the relevant data.
+////
+
+//procedure 
+
+== Step 1: Obtain API keys 
+Access to the RMS risk analysis platform is controlled by means of user credentials and xref:api-keys.adoc[API keys]. 
+
+During <<onboarding>>, a member of RMS Site Reliability Engineering will contact you and provide you with a username, password, and a set of API keys. RMS provides every account with three types of API keys: _evaluation keys_, _integration keys_ for testing, and _production keys_ for running live transactions. 
+
+
+//Provide these user credentials to the authentication server to successfully authenticates and authorizes access, 
+//You must provide three user credentials (username, password, and API key) to the authentication service. Once the authentication server verifies your identity, it will return an _access token_ that your application may use to access the platform and make API requests to the platform.  
+
+
+Every call to authentication service must specify your user name, password, and API key. If you do not include your API key when making an API request, or use an incorrect or outdated API key, the RMS risk analysis platform  returns an xref:li-error-codes[error].
+
+NOTE: You'll want to use your evaluation key to get your access token for trying out procedures and use cases.  Use your integration key for testing and development. Using these API keys instead of the production key will ensure that you don not accidentally modify production data.
+
+== Step 2: Obtain an access token
+RMS uses _token-based authentication_ to enable applications to access the risk analysis platform and make requests using our APIs. 
+
+The access token is a text string that your application must include in the request header. Your application must provide an access token as a credential whenever it calls an API resource. The access token informs the API that the bearer of the token is authorized to access the API and to perform actions within the authorized scope. 
+//("The passed token informs the API that the bearer of the token has been authorized to access the API and perform specific actions specified by the scope that was granted during authorization.")
+
+//The application receives an access token after a user successfully authenticates and authorizes access, then passes the access token as a credential when it calls the target API. 
+
+// https://auth0.com/docs/tokens/concepts/access-tokens
+
+To obtain an access token, you must make a call to the authentication service using your client credentials.  
+
+[source,curl,linenums]
+----
+curl --location --request POST 'https://api.preprod.rms.com/mi/puma/auth/v1/token' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic cm1zLXBwZS1ybGF4LWRldi1nZW5lcmFsXHRvZGQ6VDFuazJyVDM0bDVlciE=' \
+--data-raw '{
+ "grantType": "password",
+ "username": "xxxxxxxxxxxxx",
+ "password": "xxxxxxxxxxxxx",
+ "clientName": "RLaX"
+}
+'
+----
+
+The RMS authorization server returns an access token in the `access_token` field. You must set the access token in the Authorization header of subsequent API calls.
+
+[source,json,linenums]
+----
+{
+    "idToken": "xxxxxx",
+    "accessToken": "xxxxxx",
+    "refreshToken": "xxxxxx",
+    "expiresIn": 3600,
+    "tokenType": "Bearer"
+}
+----
+
+
+== Step 3: Make a test API request
+You can now confirm that integration is working by making a test API request to RMS risk analysis platform. 
+
+The Exposure Data Module is cloud-based data structure that stores and managed all of your exposure data.
+
+If you already have an EDM or an EDM was created for you during onboarding you can use the `GET` `/datasources/{datasourcename}` to retrieve information about your EDM from the platform.
+
+[source,curl,linenums]
+----
+curl --location --request GET 'https://api.preprod.rms.com/mi/api/v1/datasources/postman_edm' \
+--header ': ' \
+--header 'Authorization: Bearer XXXXXXXXXX'
+----
+
+If you do not know the name of your EDM, submit the query without the `datasourcename` parameter to view information about all of the EDM accessible to your account.
+
+NOTE: The code examples display placeholder access tokens. Replace the strings in the examples with the access token returned by the authentication service. 
+
+A successful request returns information about the specified EDM including the `datasourceId`, `datasourceName`, `ownerId`, and `metrics`.
+
+[source,json,linenums]
+----
+{
+  "datasourceId": 345,
+  "datasourceName": "postman_edm",
+  "dbType": 3,
+  "permissionType": 12,
+  "isDefault": false,
+  "metrics": {
+    "AggPortCount": 0,
+    "LastModified": "2020-02-21 19:40:15.19",
+    "TreatyCount": 0,
+    "Size": "500 MB",
+    "EDMVersion": "18",
+    "PortCount": 0,
+    "LocCount": 2,
+    "AcctCount": 10,
+    "CedantCount": 0
+  },
+  "ownerId": "umesh chander",
+  "owner": "umesh chander"
+}
+
+----
+
+== Next Steps
+
+Congratulations! Now that you have verified that you can connect to the RMS risk analysis platform, read on to learn how you can use RMS APIs to manage your data.
+
+* xref:import-exposure.adoc[Risk Modeler 2.0 Quickstart]
+* xref:import-exposure.adoc[Location Intelligence Quickstart]
+
+
+//footer
+
+////
+== Notes (Not Printed)
+
+=== Questions
+* How do I specify a particular API key? In the Postman workflow, I do not specify a key at any point.  I need to demonstrate to the user how to specify a evaluation key, integration key, or production key.
+
+=== Terms
+* access token
+* API key
+* API request
+* authentication service
+* authentication 
+* authorization
+* Authorization header
+* client credentials
+* evaluation key
+* integration key
+* onboarding
+* password
+* produciton key
+* Risk Modeler 2.0 API
+* RMS API services
+* RMS authorization server
+* RMS risk analysis platform
+* RMS Site Reliability Engineering
+* RMS user account
+* token-based authentication
+* username
+////
