@@ -2,10 +2,8 @@
 
 // Plugins
 const {gulp, src, dest, files, series} = require('gulp'),
-	//asciidoctor = require('gulp-asciidoctor'),
+	//gasciidoctor = require('gulp-asciidoctor'),
 	asciidoctor = require('@asciidoctor/core')(),
-	//dbConverter = require('@asciidoctor/docbook-converter')(),
-	//pandocWriter = require('gulp-pandoc-writer'),
   pandoc = require('gulp-pandoc'),
   nodePandoc = require('node-pandoc'),
 	convert = require('xml-js'),
@@ -73,15 +71,43 @@ function output(cb) {
 	cb();
 }
 
+/*
 // Transform ADOC to HTML WORKS
 function adoc2Html() {
 	return src(ADOC_TEST)
 		.pipe(print())
-  	.pipe(asciidoctor(
+  	.pipe(gasciidoctor(
     ))
     .pipe(dest(HTML_OUT))
 		.pipe(print());
 }
+*/
+
+// Transform ADOC to HTML Works!
+function adoc2Html(cb) {
+
+let asciidoctor = require('@asciidoctor/core')() 
+require('@asciidoctor/docbook-converter')()
+
+let options = {
+	//backend: 'docbook5', 
+	doctype: 'article',
+  standalone: true,
+	safe: 'safe',
+	to_file: './output/html/quickstart.html'
+}
+
+  let dir = './output/html';
+	if (!fs.existsSync(dir)){
+		fs.mkdirSync(dir);
+	}
+
+asciidoctor.convertFile('./input/adoc/quickstart.adoc', options);
+cb();
+};
+
+
+
 
 
 // Transform XML to PDF Works!
@@ -142,10 +168,10 @@ let args = '-f docx -t docbook -s ' + input + ' -o ' + output;
 // Transform ADOC to Docbook  Works!
 function adoc2Xml(cb) {
 
-const asciidoctor = require('@asciidoctor/core')() 
+let asciidoctor = require('@asciidoctor/core')() 
 require('@asciidoctor/docbook-converter')()
 
-const options = {
+let options = {
 	backend: 'docbook5', 
 	doctype: 'article',
   standalone: true,
@@ -194,4 +220,4 @@ exports.adoc2Xml = adoc2Xml;
 exports.docx2Xml = docx2Xml;
 exports.xml2Json = xml2Json;
 exports.xml2Pdf = xml2Pdf;
-exports.default = series(clean, output, docx2Xml, adoc2Xml, xml2Pdf);
+exports.default = series(clean, output, adoc2Html, docx2Xml, adoc2Xml, xml2Pdf);
