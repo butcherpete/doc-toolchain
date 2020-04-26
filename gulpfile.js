@@ -9,8 +9,8 @@ const {gulp, src, dest, files, series} = require('gulp'),
 	convert = require('xml-js'),
 	fs = require('fs'),
 	rename = require('gulp-rename'),
-	gxml = require('gulp-xml'),
-	xml2js = require('xml2js'),
+	//gxml = require('gulp-xml'),
+	xml2js = require('gulp-xml2js'),
 	del = require('del'),
 	watch = require('gulp-watch'),
 	print = require('gulp-print').default;
@@ -190,27 +190,9 @@ cb();
 
 // Transform XML to JSON Doesn't Work
 function xml2Json(cb) {
-	src('./output/xml/quickstart.xml')
-		.pipe(gxml({
-			parseOpts: {
-				trim: true,
-				strict: false
-			},
-			buildOpts: {
-				renderOpts: {
-					pretty: false
-				},
-				allowSurrogateChars: true,
-				cdata: true
-			},
-			callback: function (result) {
-				return result.replace(/search/g, 'MySearch');
-			}
-		}))
-	.pipe(rename({
-		basename: 'dist'
-	}))
-	.pipe(dest('./output/json'));
+	src('./input/xml/quickstart.xml')
+		.pipe(xml2js())
+		.pipe(dest('./output/json'));
 	cb();
 };
 
@@ -220,4 +202,4 @@ exports.adoc2Xml = adoc2Xml;
 exports.docx2Xml = docx2Xml;
 exports.xml2Json = xml2Json;
 exports.xml2Pdf = xml2Pdf;
-exports.default = series(clean, output, adoc2Html, docx2Xml, adoc2Xml, xml2Pdf);
+exports.default = series(clean, output, adoc2Html, docx2Xml, adoc2Xml, xml2Pdf, xml2Json);
